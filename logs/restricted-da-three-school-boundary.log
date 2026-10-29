@@ -1,0 +1,92 @@
+{
+  "status": "PASS_INDEPENDENT_EXACT_CHECK",
+  "truthful_DA": {
+    "i": "A",
+    "j": "B",
+    "k": "C"
+  },
+  "target": {
+    "i": "B",
+    "j": "A",
+    "k": "C"
+  },
+  "target_stable": true,
+  "unit_capacity_Ergin_cycle_witness": null,
+  "all_16_ordered_reports_per_strategic_student": 16,
+  "report_profiles_checked_across_all_8_rosters": 4913,
+  "unilateral_deviations_checked_on_target_profiles": 16820,
+  "D": [
+    "i",
+    "j"
+  ],
+  "L": [
+    "i",
+    "j",
+    "k"
+  ],
+  "support_rosters": [
+    [
+      "i",
+      "j"
+    ],
+    [
+      "i",
+      "j",
+      "k"
+    ]
+  ],
+  "inclusion_minimal_rosters": [
+    [
+      "i",
+      "j"
+    ]
+  ],
+  "support_profile_for_D": {
+    "i": [
+      "B"
+    ],
+    "j": [
+      "A"
+    ],
+    "k": [
+      "A",
+      "B",
+      "C"
+    ]
+  },
+  "roster_by_roster_counts": {
+    "()": {
+      "target_producing_profiles": 0,
+      "target_NE_profiles": 0
+    },
+    "('i',)": {
+      "target_producing_profiles": 5,
+      "target_NE_profiles": 0
+    },
+    "('j',)": {
+      "target_producing_profiles": 5,
+      "target_NE_profiles": 0
+    },
+    "('i', 'j')": {
+      "target_producing_profiles": 45,
+      "target_NE_profiles": 25
+    },
+    "('k',)": {
+      "target_producing_profiles": 0,
+      "target_NE_profiles": 0
+    },
+    "('i', 'k')": {
+      "target_producing_profiles": 55,
+      "target_NE_profiles": 0
+    },
+    "('j', 'k')": {
+      "target_producing_profiles": 55,
+      "target_NE_profiles": 0
+    },
+    "('i', 'j', 'k')": {
+      "target_producing_profiles": 495,
+      "target_NE_profiles": 275
+    }
+  },
+  "note": "Exact only for this fixture; shows MinK(target)=D is strictly smaller than L(target)."
+}

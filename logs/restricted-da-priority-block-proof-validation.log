@@ -1,0 +1,15 @@
+PASS exhaustive priority classification: n=4, m=3; acyclic triples=456
+PASS blockwise/global DA cross-check: 2,000 random profiles; seed=20261026
+PASS cross-block stability caveat: pair-local swap stable, globally blocked
+PASS exact 4x4 K=(0, 1): expected=2, NE=2
+PASS exact 4x4 K=(0, 2): expected=1, NE=1
+PASS exact 4x4 K=(0, 3): expected=1, NE=1
+PASS exact 4x4 K=(1, 2): expected=1, NE=1
+PASS exact 4x4 K=(1, 3): expected=1, NE=1
+PASS exact 4x4 K=(2, 3): expected=2, NE=2
+fixture priorities: {'a': (0, 1, 2, 3), 'b': (1, 0, 2, 3), 'c': (0, 1, 3, 2), 'd': (1, 0, 3, 2)}
+priority blocks: ((0, 1), (2, 3))
+truthful DA: ('b', 'c', 'd', 'a')
+true stable matchings: {('c', 'b', 'a', 'd'), ('b', 'c', 'a', 'd'), ('b', 'c', 'd', 'a'), ('c', 'b', 'd', 'a')}
+all K size 2 exactly enumerated profiles: 25,350
+exact-enumeration seconds: 0.65

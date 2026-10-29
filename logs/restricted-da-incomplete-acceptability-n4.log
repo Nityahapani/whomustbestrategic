@@ -1,0 +1,31 @@
+priorities=4/24; markets=5,184; targets=22; elapsed=0.9s
+priorities=8/24; markets=10,368; targets=64; elapsed=2.0s
+priorities=12/24; markets=15,552; targets=112; elapsed=2.8s
+priorities=16/24; markets=20,736; targets=140; elapsed=3.6s
+priorities=20/24; markets=25,920; targets=232; elapsed=4.6s
+priorities=24/24; markets=31,104; targets=324; elapsed=5.4s
+{
+  "status": "PASS_COMPLETE_EXACT_CLASS",
+  "n": 4,
+  "capacities": {
+    "A": 2,
+    "B": 2
+  },
+  "canonical_priority_profiles": 24,
+  "strict_preference_profiles_per_priority": 1296,
+  "ordered_report_profiles_per_roster_game_sum": 1296,
+  "all_markets": 31104,
+  "markets_with_nonDA_stable_target": 320,
+  "nonDA_stable_targets": 324,
+  "complete_acceptability_target_markets": 96,
+  "complete_acceptability_targets": 100,
+  "incomplete_acceptability_target_markets": 224,
+  "incomplete_acceptability_targets": 224,
+  "target_only_supports_checked": 324,
+  "hybrid_report_profiles_checked": 414720,
+  "formula_targets_verified": 324,
+  "first_mismatch": null,
+  "first_sufficiency_failure": null,
+  "elapsed_seconds": 5.43,
+  "interpretation": "Exact only for the canonical n=4, q=(2,2) class; not a general theorem."
+}

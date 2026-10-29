@@ -1,0 +1,15 @@
+{
+  "status": "PASS_EXHAUSTIVE_N2",
+  "n": 2,
+  "capacities": {
+    "A": 1,
+    "B": 1
+  },
+  "priority_profiles": 4,
+  "preference_profiles_per_priority": 4,
+  "strategic_rosters_per_market": 4,
+  "equilibrium_cells_checked": 64,
+  "restricted_report_profiles_checked": 576,
+  "mismatches": [],
+  "note": "All strategic profiles were enumerated over Q={empty,A,B,AB,BA}; order is unrestricted. Unilateral best-response checks use truthful deviations by DA strategy-proofness."
+}

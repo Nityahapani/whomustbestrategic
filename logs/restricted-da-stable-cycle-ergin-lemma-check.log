@@ -1,0 +1,6 @@
+exact m=3, q=(2,1,1), n=4: total_priority_profiles=13824; stable_cycle_profiles=1152; valid_certificates=1152; branches={'induction': 768, 'minimum-incumbent': 352, 'final': 32}
+exact m=4, q=(1,1,1,1), n=4: total_priority_profiles=331776; stable_cycle_profiles=20736; valid_certificates=20736; branches={'induction': 19440, 'minimum-incumbent': 1215, 'final': 81}
+random m=3, q=(2,2,2), n=6: sampled_profiles=20000; stable_cycle_profiles=694; valid_certificates=694; branches={'induction': 410, 'minimum-incumbent': 280, 'final': 4}; seed=20261028
+random m=4, q=(2,2,2,2), n=8: sampled_profiles=20000; stable_cycle_profiles=246; valid_certificates=246; branches={'induction': 213, 'minimum-incumbent': 33, 'final': 0}; seed=20261029
+random m=4, q=(3,2,1,2), n=8: sampled_profiles=20000; stable_cycle_profiles=304; valid_certificates=304; branches={'induction': 276, 'minimum-incumbent': 28, 'final': 0}; seed=20261030
+PASS: every tested stable-cycle priority profile has a verified Ergin-cycle certificate

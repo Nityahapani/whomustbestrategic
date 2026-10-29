@@ -1,0 +1,229 @@
+\documentclass[a4paper,11pt]{article}
+\usepackage[T1]{fontenc}
+\usepackage{lmodern}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amssymb}
+\usepackage{array,booktabs,longtable,pdflscape}
+\usepackage[margin=0.45in,headheight=14pt]{geometry}
+\usepackage{enumitem}
+\usepackage{url}
+\usepackage[hidelinks]{hyperref}
+\usepackage[expansion=false]{microtype}
+\usepackage{fancyhdr}
+\usepackage{newunicodechar}
+\newunicodechar{λ}{\ensuremath{\lambda}}
+\newunicodechar{μ}{\ensuremath{\mu}}
+\newunicodechar{ω}{\ensuremath{\omega}}
+\newunicodechar{∅}{\ensuremath{\varnothing}}
+\newunicodechar{−}{\ensuremath{-}}
+\newunicodechar{∩}{\ensuremath{\cap}}
+\newunicodechar{∪}{\ensuremath{\cup}}
+\newunicodechar{≡}{\ensuremath{\equiv}}
+\newunicodechar{≤}{\ensuremath{\leq}}
+\newunicodechar{≥}{\ensuremath{\geq}}
+\newunicodechar{≻}{\ensuremath{\succ}}
+\newunicodechar{⊆}{\ensuremath{\subseteq}}
+\newunicodechar{⊊}{\ensuremath{\subsetneq}}
+\hypersetup{pdfauthor={Nitya Hapani},pdftitle={Technical supplement: reserve certificates, efficiency lift, and finite checks}}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0.45em}
+\setlist[itemize]{leftmargin=*,itemsep=0.25em,topsep=0.25em}
+\setlist[enumerate]{leftmargin=*,itemsep=0.35em,topsep=0.3em}
+\pagestyle{fancy}
+\fancyhf{}
+\fancyhead[L]{\small Technical supplement}
+\fancyhead[R]{\small Nitya Hapani}
+\fancyfoot[C]{\thepage}
+\renewcommand{\headrulewidth}{0.4pt}
+\emergencystretch=2em
+\sloppy
+\title{
+Technical supplement: reserve certificates, efficiency lift, and finite checks
+}
+\author{Nitya Hapani\\[0.25em]\small The Galaxy School}
+\date{29 October 2026}
+\begin{document}
+\maketitle
+
+\textbf{Companion paper:} \emph{Who Must Be Strategic? Target-Specific Access in Deferred Acceptance}\\
+\textbf{Date:} 29 October 2026\\
+\textbf{Scope:} Detailed reserve-set derivations, the full-market efficiency lift, and validation scope for the accompanying reproducibility scripts.
+
+
+\section*{A. Adjusted-Ergin cycle definition used in the proof}
+For school capacities \ensuremath{q_s,q_t}, an adjusted-Ergin certificate is a pair of distinct schools \texttt{s,t}, three distinct students \ensuremath{p,j,\ell}, and disjoint reserve sets \texttt{E,F} such that
+
+
+\begin{itemize}[leftmargin=*,itemsep=0.25em,topsep=0.25em]
+\item at \texttt{s}: \ensuremath{p \succ{}_s j \succ{}_s \ell};
+\item at \texttt{t}: \ensuremath{\ell \succ{}_t p};
+\item \texttt{E} contains exactly \ensuremath{q_s-1} students above \texttt{j} at \texttt{s}, excludes the triple;
+\item \texttt{F} contains exactly \ensuremath{q_t-1} students above \texttt{p} at \texttt{t}, excludes the triple;
+\item \ensuremath{E \cap{} F = \varnothing}.
+\end{itemize}
+
+
+Empty reserve sets are permitted when a school has unit capacity. In the proof, each chosen reserve set is obtained from a full target roster \ensuremath{C_h=\mu^{-1}(b_h)} of size \ensuremath{q_h}; fullness and the incumbent-priority comparison follow from stability whenever the cycle's incoming student strictly prefers that school to their target assignment.
+
+
+\section*{B. Reserve-set certificate ledger for the long-cycle lemma}
+Assume a stable matching \ensuremath{\mu} has a strict improvement cycle with distinct schools \ensuremath{b_1,...,b_m}, distinct students \ensuremath{a_1,...,a_m}, \ensuremath{m\geq{}3}, and indices modulo \texttt{m}, with \ensuremath{\mu(a_i)=b_i} and \ensuremath{b_i \succ{}_{a_{i+1}} b_{i+1}}. Write \ensuremath{C_i=\mu^{-1}(b_i)} and \ensuremath{q_i=q_{b_i}}. Stability gives \ensuremath{|C_i|=q_i} and every member of \ensuremath{C_i} above incoming \ensuremath{a_{i+1}} at \ensuremath{b_i}.
+
+
+\begin{landscape}
+\begingroup
+\footnotesize
+\setlength{\tabcolsep}{2pt}
+\renewcommand{\arraystretch}{1.06}
+\setlength{\LTpre}{0.3\baselineskip}
+\setlength{\LTpost}{0.4\baselineskip}
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{1.15in}>{\raggedright\arraybackslash}p{1.65in}>{\raggedright\arraybackslash}p{1.25in}>{\raggedright\arraybackslash}p{1.25in}>{\raggedright\arraybackslash}p{5.00in}@{}}
+\toprule
+\textbf{Contradiction branch} & \textbf{Certificate triple and schools} & \textbf{Reserve at first school} & \textbf{Reserve at second school} & \textbf{Size, priority, exclusion, and disjointness check} \\
+\midrule
+\endfirsthead
+\multicolumn{5}{c}{Continued from previous page} \\
+\toprule
+\textbf{Contradiction branch} & \textbf{Certificate triple and schools} & \textbf{Reserve at first school} & \textbf{Reserve at second school} & \textbf{Size, priority, exclusion, and disjointness check} \\
+\midrule
+\endhead
+\midrule
+\multicolumn{5}{r}{Continued on next page} \\
+\endfoot
+\bottomrule
+\endlastfoot
+Comparison induction, \ensuremath{r=0} & \ensuremath{(p,j,\ell)=(a_i,a_{i+1},a_{i-1})}; \ensuremath{(s,t)=(b_i,b_{i-1})} & \ensuremath{C_i \setminus  {a_i}} & \ensuremath{C_{i-1} \setminus  {a_{i-1}}} & First size \ensuremath{q_i-1}; it removes the only triple student in \ensuremath{C_i}. Both other triple members have assignments at \ensuremath{b_{i+1}} and \ensuremath{b_{i-1}}, distinct from \ensuremath{b_i} for all \ensuremath{m\geq{}3}. All first-reserve members outrank \texttt{j} by stability. Second size \ensuremath{q_{i-1}-1}; \ensuremath{a_{i-1}=\ell} is removed, \texttt{p} is assigned to \ensuremath{b_i}, and \texttt{j} to \ensuremath{b_{i+1}}, both distinct from \ensuremath{b_{i-1}}. Stability for incoming \texttt{p} puts every remaining incumbent above \texttt{p}. The school rosters are distinct and disjoint. \\
+\midrule
+Comparison induction, \ensuremath{1\leq{}r\leq{}m-3} & \ensuremath{(p,j,\ell)=(a_{i-r},a_{i+1},a_{i-r-1})}; \ensuremath{(s,t)=(b_i,b_{i-r-1})} & Any \ensuremath{q_i-1} members of \ensuremath{C_i} & \ensuremath{C_{i-r-1} \setminus  {a_{i-r-1}}} & At \texttt{s}, the three students are outside \ensuremath{C_i}: their assigned-school offsets from \texttt{i} are \ensuremath{-r}, \texttt{+1}, and \ensuremath{-r-1}, none zero modulo \texttt{m} over this range. Thus any \ensuremath{q_i-1} incumbents exclude the triple and all outrank \texttt{j} by stability. At \texttt{t}, \ensuremath{\ell} is removed; \texttt{p} is assigned to the distinct school \ensuremath{b_{i-r}}. \texttt{j} is assigned to \ensuremath{b_{i+1}}; this differs from \ensuremath{b_{i-r-1}} because equality would require \ensuremath{r+2\equiv{}0 (mod m)}, whereas \ensuremath{2\leq{}r+2\leq{}m-1}. The second set has exact size and lies above incoming \texttt{p} by stability. The schools differ because \ensuremath{1\leq{}r+1\leq{}m-2}; their target rosters are disjoint. \\
+\midrule
+Lowest-incumbent contradiction & If \ensuremath{a_{i+2} \succ{}_{b_i} r_i}, use \ensuremath{(p,j,\ell)=(a_{i+2},r_i,a_{i+1})}; \ensuremath{(s,t)=(b_i,b_{i+1})} & \ensuremath{C_i \setminus  {r_i}} & \ensuremath{C_{i+1} \setminus  {a_{i+1}}} & First size \ensuremath{q_i-1}; its members outrank \ensuremath{r_i=j} because \ensuremath{r_i} is the lowest incumbent. \texttt{p} and \ensuremath{\ell} are assigned to \ensuremath{b_{i+2}} and \ensuremath{b_{i+1}}, not \ensuremath{b_i}. Second size \ensuremath{q_{i+1}-1}; \ensuremath{\ell} is removed and stability puts all remaining incumbents above incoming \texttt{p}. Neither \texttt{p} nor \texttt{j} is assigned to \ensuremath{b_{i+1}}. The rosters are distinct/disjoint. When either capacity is one, the corresponding reserve is empty and still has the required size. \\
+\midrule
+Final certificate, \ensuremath{m=3} & \ensuremath{(p,j,\ell)=(a_i,a_{i+2},a_{i+1})}; \ensuremath{(s,t)=(b_i,b_{i-1})} & \ensuremath{C_i \setminus  {a_i}} & \ensuremath{C_{i-1} \setminus  {a_{i+2}}} & At \texttt{s}, size is \ensuremath{q_i-1}; \ensuremath{r_i} is above \ensuremath{a_{i+2}} and is the lowest incumbent, so every reserve is above \texttt{j}. The only triple member assigned at \texttt{t} is \ensuremath{a_{i+2}}, since \ensuremath{b_{i+2}=b_{i-1}} for \ensuremath{m=3}; remove it. The other two triple members are at \ensuremath{b_i,b_{i+1}}. At \texttt{t}, every remaining incumbent is above incoming \ensuremath{a_i} by stability. The school rosters are distinct/disjoint. \\
+\midrule
+Final certificate, \ensuremath{m\geq{}4} & Same triple and schools & \ensuremath{C_i \setminus  {a_i}} & Any \ensuremath{q_{i-1}-1} members of \ensuremath{C_{i-1}} & The first set has the same exact size and priority property as above. None of the triple members is assigned to \ensuremath{b_{i-1}}: the assignments are at \ensuremath{b_i,b_{i+1},b_{i+2}}, and these differ from \ensuremath{b_{i-1}} for \ensuremath{m\geq{}4}. Choose any \ensuremath{q_{i-1}-1} incumbents; stability puts them above incoming \ensuremath{a_i}. Distinct target rosters make the sets disjoint. \\
+\bottomrule
+\end{longtable}
+\endgroup
+\end{landscape}
+\clearpage
+
+\subsection*{Boundary checks}
+\begin{itemize}[leftmargin=*,itemsep=0.25em,topsep=0.25em]
+\item \textbf{Smallest cycle:} When \ensuremath{m=3}, the induction range \ensuremath{0\leq{}r\leq{}m-3} contains the single step \ensuremath{r=0}. If its comparison failed, the certificate triple is \ensuremath{(a_i,a_{i+1},a_{i+2})} at the distinct schools \ensuremath{(b_i,b_{i-1})}; if no certificate exists, that step yields the comparison \ensuremath{a_{i+2}\succ{}_{b_i}a_{i+1}} used later. The lowest-incumbent step uses \ensuremath{b_i,b_{i+1}}, also distinct. In the final branch, exactly one triple student, \ensuremath{a_{i+2}}, is assigned to the second school \ensuremath{b_{i-1}} and is removed from its reserve roster.
+\item \textbf{Longer cycles:} For \ensuremath{m\geq{}4}, the final second-school roster contains none of the three certificate students, so no deletion is needed there. The modular inequalities in the induction ensure the second roster also excludes \texttt{p,j} at every endpoint \ensuremath{r=m-3}.
+\item \textbf{Capacity one:} Every reserve set has cardinality exactly \ensuremath{q_s-1}. If \ensuremath{q_s=1}, its prescribed set is empty. All priority claims about an empty set are vacuous; no branch presumes a positive reserve count.
+\item \textbf{Disjointness:} In every branch, the reserve sets are subsets of \ensuremath{C_h} and \ensuremath{C_k} for distinct target schools. Since \ensuremath{\mu} is a matching, distinct school rosters are disjoint. The explicitly deleted triple member is the only triple student in that roster; the index checks above establish that no other triple member enters the set.
+\item \textbf{Priority thresholds:} At a school with a reserve roster, the incoming cycle student strictly prefers that school to their \ensuremath{\mu}-assignment. Stability therefore makes the school full and ranks every incumbent above that incoming student. The one exception to this general source of a priority inequality is the first-school reserve in the lowest-incumbent step: \ensuremath{C_i\setminus {r_i}} lies above \ensuremath{r_i} because \ensuremath{r_i} is the lowest-priority incumbent.
+\end{itemize}
+
+
+\section*{C. Exact application of Ergin efficiency in the residual-efficiency lemma}
+For each \ensuremath{J\subseteq{}K}, the residual market \ensuremath{M_J} removes students in \texttt{J} and exactly their target seats; its DA outcome is \ensuremath{\lambda^J}. The efficiency argument is deliberately \textbf{not} an application of Ergin's theorem to \ensuremath{M_J}.
+
+
+\begin{enumerate}[leftmargin=*,itemsep=0.25em,topsep=0.25em]
+\item Return to the \textbf{original full market}, with the original priorities, capacities, and adjusted-Ergin-acyclicity condition.
+\item Construct a full strict report profile \ensuremath{P^J}: students in \texttt{J} rank a matched target first and all omitted schools below the outside option; an unmatched target reporter ranks the outside option above every school; all active students report true preferences.
+\item The target-lock decomposition proves that full-market DA at \ensuremath{P^J} yields \ensuremath{\mu_J \cup{} \lambda^J}.
+\item If a feasible residual matching \ensuremath{\omega} Pareto-dominated \ensuremath{\lambda^J}, lift it to \ensuremath{\mu_J \cup{} \omega}. At each school \texttt{s}, feasibility is exactly \ensuremath{|J\cap{}\mu^{-1}(s)| + |\omega^{-1}(s)| \leq{} |J\cap{}\mu^{-1}(s)| + q_s^J = q_s}. The lift leaves each target-locked reporter unchanged under their completed report, weakly improves every active student at their true preference, and strictly improves at least one.
+\item Ergin (2002), Theorem 1, gives Pareto efficiency of the extended DA rule under the original adjusted-acyclic priority-capacity profile, for every strict preference profile. It applies to the full profile \ensuremath{P^J}, contradicting the full-market Pareto improvement. Thus \ensuremath{\lambda^J} is Pareto efficient among feasible residual matchings, evaluated at active students' true preferences.
+\end{enumerate}
+
+
+No residual acyclicity is assumed or needed. The point of lifting is precisely to use the established efficiency theorem where its verified acyclicity hypothesis applies: the original market.
+
+
+\section*{D. Unit-capacity ordered blocks: role in the roster theorem}
+The paper now states the common ordered-block representation as a separate lemma (\texttt{lem:orderedblocks}) and the DA/stability decomposition as a separate lemma (\texttt{lem:blockdecomp}). Their proof works for every finite number of students and schools. In brief:
+
+
+\begin{itemize}[leftmargin=*,itemsep=0.25em,topsep=0.25em]
+\item Relative to a reference school's ranking, any nonadjacent inversion creates an Ergin cycle.
+\item Adjacent reversals cannot overlap at one school, by transitivity and the preceding nonadjacent result.
+\item Adjacent reversals cannot overlap across schools: the induced three-student priority comparisons themselves form an Ergin cycle.
+\item The union of reversals is therefore a matching on the reference-order path, which yields common ordered singleton/pair blocks; conversely, the shared block order precludes a cycle.
+\item Asynchronous DA can clear those blocks in order because earlier-block students outrank later-block students at every school. Stable-match restrictions within each residual block market satisfy Rural Hospitals, so each block uses the same school set across stable matchings. A changed pair is a whole swap; a singleton cannot change.
+\item This makes \ensuremath{D(\mu)\subseteq{}K} necessary and sufficient for the unit-capacity theorem. The block representation reformulates the established acyclicity condition and is used to derive the fixed-roster outcome correspondence.
+\end{itemize}
+
+
+\section*{E. Finite validation scope and saved logs}
+The analytic proofs in the manuscript establish the general results. The checks below validate small enumerated classes or the implementation of the written certificate construction; they do not replace those proofs. The companion \path{README.md} gives exact run commands, class definitions, dependencies, and the explicit separation between exhaustive enumeration and seeded sampling.
+
+
+\subsection*{Exhaustive enumerations and fixed-fixture checks}
+\begin{landscape}
+\begingroup
+\footnotesize
+\setlength{\tabcolsep}{2pt}
+\renewcommand{\arraystretch}{1.06}
+\setlength{\LTpre}{0.3\baselineskip}
+\setlength{\LTpost}{0.4\baselineskip}
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{1.75in}>{\raggedright\arraybackslash}p{3.10in}>{\raggedright\arraybackslash}p{5.50in}@{}}
+\toprule
+\textbf{Check} & \textbf{Scope and validation} & \textbf{Saved log} \\
+\midrule
+\endfirsthead
+\multicolumn{3}{c}{Continued from previous page} \\
+\toprule
+\textbf{Check} & \textbf{Scope and validation} & \textbf{Saved log} \\
+\midrule
+\endhead
+\midrule
+\multicolumn{3}{r}{Continued on next page} \\
+\endfoot
+\bottomrule
+\endlastfoot
+Two-school \ensuremath{n=2} target-loss regression & All four priority profiles, four complete preference profiles per priority, and all four rosters; 64 market-roster cells and 576 strategic report profiles. Checks the exact roster/outcome correspondence over all five ordered two-school reports. & \path{logs/restricted-da-two-school-target-loss-n2.log} \\
+\midrule
+Two-school access frontier & Exact \ensuremath{n=2,3,4} complete-acceptability class; 28,240 markets, 447,040 candidate assignments, and 33,906 stable outcomes. Checks the cutoff formula and target-loss/core identities against direct stability. & \path{logs/restricted-da-access-frontier-check.log} \\
+\midrule
+Incomplete-acceptability two-school scan & Exact canonical \ensuremath{n=4}, \texttt{(2,2)} class; 31,104 markets and 324 non-DA stable targets, including 224 incomplete-acceptability targets. Checks the target-loss formula over all target-roster cases. & \path{logs/restricted-da-incomplete-acceptability-n4.log} \\
+\midrule
+Unit-capacity block check & All four-student/three-school priority profiles classified (456 acyclic); an exact four-by-four fixture enumerates all six size-two rosters and 25,350 report profiles. Checks the block classification and the fixed-roster equality in that fixture. & \path{logs/restricted-da-priority-block-proof-validation.log} \\
+\midrule
+Reserve certificates, exact classes & All 13,824 profiles for \ensuremath{m=3}, \ensuremath{q=(2,1,1)}, and all 331,776 profiles for \ensuremath{m=4}, \ensuremath{q=(1,1,1,1)}; only profiles satisfying the stable-cycle comparisons enter the certificate checks. & \path{logs/restricted-da-stable-cycle-ergin-lemma-check.log} \\
+\midrule
+Three-school boundary fixture & One explicitly specified three-student, three-school unit-capacity market; all 4,913 report-profile/roster combinations and 16,820 unilateral deviations. Independently checks the stable target and \ensuremath{MinK(target)=D(target)\subsetneq{}L(target)} for this fixture only. & \path{logs/restricted-da-three-school-boundary.log} \\
+\bottomrule
+\end{longtable}
+\endgroup
+\end{landscape}
+\clearpage
+
+\begin{landscape}
+\begingroup
+\subsection*{Seeded checks --- not exhaustive}
+
+The exact profile counts and per-sample certificate-branch counts appear in the saved logs. A seeded sample is not treated as exhaustive. The three-school fixture is a single counterexample illustration, not a class-wide theorem check.
+\medskip
+\footnotesize
+\setlength{\tabcolsep}{2pt}
+\renewcommand{\arraystretch}{1.06}
+\setlength{\LTpre}{0.3\baselineskip}
+\setlength{\LTpost}{0.4\baselineskip}
+\begin{longtable}{@{}>{\raggedright\arraybackslash}p{1.75in}>{\raggedright\arraybackslash}p{3.10in}>{\raggedright\arraybackslash}p{5.50in}@{}}
+\toprule
+\textbf{Check} & \textbf{Sample and seed} & \textbf{Validation} \\
+\midrule
+\endfirsthead
+\multicolumn{3}{c}{Continued from previous page} \\
+\toprule
+\textbf{Check} & \textbf{Sample and seed} & \textbf{Validation} \\
+\midrule
+\endhead
+\midrule
+\multicolumn{3}{r}{Continued on next page} \\
+\endfoot
+\bottomrule
+\endlastfoot
+Unit-capacity DA/block comparison & 2,000 random profiles; seed \texttt{20261026}. & Cross-checks blockwise and independent round-based DA. \\
+\midrule
+Reserve-certificate samples & 20,000 profiles for each of \ensuremath{q=(2,2,2)}, \ensuremath{q=(2,2,2,2)}, and \ensuremath{q=(3,2,1,2)}; seeds \texttt{20261028}, \texttt{20261029}, and \texttt{20261030}, respectively. & Verifies the reserve construction on qualifying stable-cycle profiles found in each sample; counts are sample outcomes. \\
+\bottomrule
+\end{longtable}
+\endgroup
+\end{landscape}
+\clearpage
+
+\end{document}
